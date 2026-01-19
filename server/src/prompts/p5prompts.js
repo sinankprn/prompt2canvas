@@ -20,7 +20,7 @@ The JSON must have this structure:
    - Use modern color palettes, smooth motion, and clear strokes. 
    - Add subtle particle effects, gradients, or trails where appropriate.
 6. UI Elements:
-   - Simulation settings (e.g., speed, gravity, mass) must be displayed in the **top-left corner**.
+   - Simulation settings (e.g., speed, gravity, mass) must be displayed in the **top-left corner**. Ensure that all these settings actually work.
    - Simulation title must appear in **top-center in bold**, distinct from the rest of the interface.
 7. Procedural Generation: Do not use external images or sounds. Generate all visuals and interactions procedurally.
 8. Safety: Ensure all variables are initialized to prevent runtime errors.

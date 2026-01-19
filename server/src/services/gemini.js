@@ -28,7 +28,7 @@ export async function geminiExecution(topic) {
         thinkingLevel: ThinkingLevel.HIGH,
       },
       systemInstruction: SYSTEM_INSTRUCTION,
-      temperature: 0.5,
+      temperature: 0.3,
       responseMimeType: "application/json",
       responseSchema: zodToJsonSchema(responseSchema),
     },

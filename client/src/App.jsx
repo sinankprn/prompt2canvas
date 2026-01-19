@@ -25,7 +25,15 @@ export default function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.trim() && !loading) generate(input);
+    if (input.trim() && !loading) {
+      generate(input);
+      setInput("");
+      // Hide the chatbox after submission
+      setIsFocused(false);
+      setIsFooterHovered(false);
+      // Blur the input to ensure it loses focus
+      e.target.querySelector("input")?.blur();
+    }
   };
 
   return (
@@ -108,7 +116,12 @@ export default function App() {
             isFooterHovered || isFocused ? "" : "pointer-events-none"
           }`}
           onMouseEnter={() => setIsFooterHovered(true)}
-          onMouseLeave={() => !isFocused && setIsFooterHovered(false)}
+          onMouseLeave={() => {
+            setIsFooterHovered(false);
+            // Also unfocus when mouse leaves
+            if (!isFocused) return;
+            // We don't force blur here since user might still be typing
+          }}
         >
           {/* Subtle hint bar when hidden */}
           <div
@@ -170,7 +183,7 @@ export default function App() {
                 <input
                   autoFocus
                   className="flex-1 bg-transparent py-6 text-xl text-white focus:outline-none placeholder:text-slate-600 font-light tracking-tight"
-                  placeholder="Describe a concept to visualize..."
+                  placeholder="Describe a concept to visualise..."
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onFocus={() => setIsFocused(true)}
@@ -192,7 +205,7 @@ export default function App() {
                   className="group relative px-12 py-6 bg-white text-black disabled:bg-slate-900 disabled:text-slate-700 rounded-[2.8rem] transition-all font-black text-xs tracking-[0.2em] uppercase active:scale-95 shadow-xl overflow-hidden"
                 >
                   <div className="relative flex items-center gap-3">
-                    <span>Synthesize</span>
+                    <span>Generate</span>
                     <Zap
                       size={14}
                       className="fill-current group-hover:animate-bounce"

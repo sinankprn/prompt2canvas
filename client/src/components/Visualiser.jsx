@@ -6,12 +6,11 @@ export default function Visualiser({ blobUrl, loading }) {
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-slate-950/50 backdrop-blur-md">
           <div className="w-12 h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
           <p className="mt-4 text-blue-400 font-medium animate-pulse">
-            Synthesizing Physics...
+            Loading canvas...
           </p>
         </div>
       )}
 
-      {/* The Actual Simulation */}
       {blobUrl ? (
         <iframe
           src={blobUrl}
